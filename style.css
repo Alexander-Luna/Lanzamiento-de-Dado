@@ -1,0 +1,79 @@
+body {
+    background-color: #1a1a1a;
+    /* Fondo oscuro */
+    color: #ffffff;
+    /* Texto en blanco */
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+
+}
+
+.img {
+    width: 100px;
+    height: 100px;
+    display: none;
+    background-size: cover;
+}
+
+#dado {
+    width: 100px;
+    display: none;
+    background-size: cover;
+    height: 100px;
+    background-image: url('img/cara1.png');
+}
+
+#dado {
+    width: 100px;
+    height: 100px;
+    background-size: cover;
+    margin-bottom: 20px;
+}
+
+#gif-carga {
+    width: 100px;
+    height: 100px;
+    display: none;
+}
+
+button {
+    background-color: #333333;
+    /* Fondo oscuro para botones */
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    margin-right: 10px;
+    border-radius: 5px;
+    /* Bordes redondeados */
+    cursor: pointer;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    margin-bottom: 5px;
+}
+
+#info-paginacion {
+    margin-top: 10px;
+}
+
+#btn-anterior,
+#btn-siguiente {
+    margin-top: 10px;
+}
+
+#btn-anterior:disabled,
+#btn-siguiente:disabled {
+    opacity: 0.5;
+    /* Botones desactivados con opacidad reducida */
+    cursor: not-allowed;
+}
