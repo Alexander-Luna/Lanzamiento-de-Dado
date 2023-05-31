@@ -59,13 +59,13 @@ function guardarResultados() {
 }
 
 function mostrarResultados() {
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            var resultadosJSON = this.responseText;
-            var resultados = JSON.parse(resultadosJSON);
+    fetch("resultados.json")
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (resultados) {
             totalResultados = resultados.length;
-
+            lanzamientos = resultados;
             var resultadosHTML = "";
             var inicio = (paginaActual - 1) * resultadosPorPagina;
             var fin = inicio + resultadosPorPagina;
@@ -76,13 +76,11 @@ function mostrarResultados() {
             }
 
             document.getElementById("resultados").innerHTML = resultadosHTML;
-            document.getElementById("info-paginacion").textContent = "Mostrando resultados " + (inicio + 1) + " - " + (fin) + " de " + totalResultados;
+            document.getElementById("info-paginacion").textContent = "Mostrando resultados " + (inicio + 1) + " - " + fin + " de " + totalResultados;
             actualizarBotonesPaginacion();
-        }
-    };
-    xmlhttp.open("GET", "resultados.json", true);
-    xmlhttp.send();
+        });
 }
+
 
 function irPagina(pagina) {
     paginaActual = pagina;
@@ -123,4 +121,41 @@ function realizarLanzamientos() {
             guardarLanzamiento();
         }
     }
+} function calcularProbabilidad() {
+    var numLanzamientos = lanzamientos.length;
+    var resultadoProbabilidad = {};
+
+    // Calcular la frecuencia de cada número
+    for (var i = 0; i < numLanzamientos; i++) {
+        var resultado = lanzamientos[i];
+        if (resultado in resultadoProbabilidad) {
+            resultadoProbabilidad[resultado]++;
+        } else {
+            resultadoProbabilidad[resultado] = 1;
+        }
+    }
+
+    // Calcular la probabilidad de cada número
+    for (var resultado in resultadoProbabilidad) {
+        var frecuencia = resultadoProbabilidad[resultado];
+        var probabilidad = frecuencia / numLanzamientos;
+        resultadoProbabilidad[resultado] = probabilidad;
+    }
+
+    return resultadoProbabilidad;
 }
+
+
+function mostrarProbabilidad() {
+    var probabilidad = calcularProbabilidad();
+    var probabilidadHTML = "<h2>Probabilidad de cada número:</h2><ul>";
+
+    for (var resultado in probabilidad) {
+        probabilidadHTML += "<li>Número " + resultado + ": " + (probabilidad[resultado] * 100).toFixed(2) + "%</li>";
+    }
+
+    probabilidadHTML += "</ul>";
+
+    document.getElementById("probabilidad").innerHTML = probabilidadHTML;
+}
+

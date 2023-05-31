@@ -16,11 +16,17 @@
   <button onclick="guardarLanzamiento()">Lanzar Dado</button>
   <button onclick="guardarResultados()">Guardar Resultados</button>
   <button onclick="mostrarResultados()">Mostrar Resultados</button>
+
+  <button onclick="mostrarProbabilidad()">Calcular Probabilidad</button>
+  <div id="probabilidad"></div>
+
+
+
+
   <ul id="resultados"></ul>
   <div id="info-paginacion"></div>
   <button id="btn-anterior" onclick="paginaAnterior()" disabled>Anterior</button>
   <button id="btn-siguiente" onclick="paginaSiguiente()" disabled>Siguiente</button>
-
 
   <div id="lanzamientos-container"></div>
 </body>
