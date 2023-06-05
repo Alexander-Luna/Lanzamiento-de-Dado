@@ -1,7 +1,7 @@
 body {
     background-color: #1a1a1a;
     /* Fondo oscuro */
-    color: #ffffff;
+    color: #000;
     /* Texto en blanco */
     font-family: Arial, sans-serif;
     display: flex;
@@ -10,6 +10,10 @@ body {
     align-items: center;
     min-height: 100vh;
 
+}
+
+#titulo {
+    color: #fff;
 }
 
 .img {
@@ -43,7 +47,7 @@ body {
 button {
     background-color: #333333;
     /* Fondo oscuro para botones */
-    color: #ffffff;
+    color: #000;
     border: none;
     padding: 10px 20px;
     margin-right: 10px;
@@ -76,4 +80,55 @@ li {
     opacity: 0.5;
     /* Botones desactivados con opacidad reducida */
     cursor: not-allowed;
+}
+
+/* Estilos datos  */
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.button-container button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Estilos entrada de informacion */
+.modern-input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    outline: none;
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.modern-input:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+
+/* Estilos de los resultados  */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* Ajusta el número de columnas según tus necesidades */
+    gap: 20px;
+    /* Ajusta el espacio entre las celdas según tus necesidades */
+    margin-top: 20px;
+}
+
+.grid-container>* {
+    background-color: #f2f2f2;
+    padding: 20px;
+    border-radius: 5px;
 }

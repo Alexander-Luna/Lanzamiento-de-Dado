@@ -121,7 +121,8 @@ function realizarLanzamientos() {
             guardarLanzamiento();
         }
     }
-} function calcularProbabilidad() {
+}
+function calcularProbabilidad() {
     var numLanzamientos = lanzamientos.length;
     var resultadoProbabilidad = {};
 
@@ -148,7 +149,7 @@ function realizarLanzamientos() {
 
 function mostrarProbabilidad() {
     var probabilidad = calcularProbabilidad();
-    var probabilidadHTML = "<h2>Probabilidad de cada número:</h2><ul>";
+    var probabilidadHTML = "<h3>Probabilidad de cada número:</h3><ul>";
 
     for (var resultado in probabilidad) {
         probabilidadHTML += "<li>Número " + resultado + ": " + (probabilidad[resultado] * 100).toFixed(2) + "%</li>";
