@@ -17,30 +17,24 @@ body {
 }
 
 .img {
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     display: none;
     background-size: cover;
 }
 
 #dado {
-    width: 100px;
+    width: 150px;
+    height: 150px;
     display: none;
     background-size: cover;
-    height: 100px;
     background-image: url('img/cara1.png');
 }
 
-#dado {
-    width: 100px;
-    height: 100px;
-    background-size: cover;
-    margin-bottom: 20px;
-}
 
 #gif-carga {
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     display: none;
 }
 
